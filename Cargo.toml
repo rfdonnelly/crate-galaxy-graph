@@ -3,7 +3,6 @@
 name = "renderer"
 version = "0.0.1"
 authors = ["Huon Wilson <dbau.pp@gmail.com>"]
-build = "build.rs"
 
 [dependencies]
 rustc-serialize = "0.2.2"

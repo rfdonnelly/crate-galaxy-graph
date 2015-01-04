@@ -2,9 +2,9 @@
 extern crate glob;
 extern crate "rustc-serialize" as rustc_serialize;
 
-use std::borrow::IntoCow;
 use std::collections::{HashMap, HashSet, hash_map};
-use std::io::{BufferedReader, File};
+use std::io::{BufferedReader, File, Command};
+use std::io::fs::PathExtensions;
 
 const MAX_REV_DEP_COUNT: uint = 100;
 
@@ -31,7 +31,24 @@ struct DepInfo {
     kind: Option<String>
 }
 
+fn fetch_index() {
+    if Path::new("crates.io-index").exists() {
+        return
+    }
+
+    Command::new("git")
+        .arg("clone")
+        .arg("--depth").arg("1")
+        .arg("https://github.com/rust-lang/crates.io-index")
+        .spawn()
+        .unwrap()
+        .wait()
+        .unwrap();
+}
+
 fn main() {
+    fetch_index();
+
     let mut opts = glob::MatchOptions::new();
     opts.require_literal_leading_dot = true;
 
