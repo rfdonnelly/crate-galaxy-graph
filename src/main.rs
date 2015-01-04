@@ -45,13 +45,13 @@ fn main() {
         let crate_info: CrateInfo = rustc_serialize::json::decode(&*last_line).unwrap();
 
         crates.push(crate_info.name.clone());
-        if !crate_info.deps.is_empty() {
-            interacts.insert(crate_info.name.clone());
-        }
         let mut deps = crate_info.deps.iter()
             .filter(|d| d.kind.as_ref().map_or(true, |s| &**s != "dev"))
             .map(|d| &d.name)
             .collect::<Vec<_>>();
+        if !deps.is_empty() {
+            interacts.insert(crate_info.name.clone());
+        }
 
         deps.sort();
         deps.dedup();
