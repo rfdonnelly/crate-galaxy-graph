@@ -1,10 +1,9 @@
 #![feature(old_orphan_check)]
-extern crate "graphviz" as dot;
 extern crate glob;
 extern crate "rustc-serialize" as rustc_serialize;
 
 use std::borrow::IntoCow;
-use std::collections::{HashMap, HashSet};
+use std::collections::{HashMap, HashSet, hash_map};
 use std::io::{BufferedReader, File};
 
 #[derive(RustcDecodable)]
@@ -37,6 +36,7 @@ fn main() {
     let mut crates = vec![];
     let mut edges = vec![];
     let mut interacts = HashSet::new();
+    let mut rev_dep_count = HashMap::new();
 
     for path in glob::glob_with("crates.io-index/*/*/*", &opts)
                     .chain(glob::glob_with("crates.io-index/[12]/*", &opts)) {
@@ -58,6 +58,12 @@ fn main() {
         for &dep_name in deps.iter() {
             interacts.insert(dep_name.clone());
             edges.push((crate_info.name.clone(), dep_name.clone()));
+
+            let count = match rev_dep_count.entry(dep_name.clone()) {
+                hash_map::Entry::Occupied(o) => o.into_mut(),
+                hash_map::Entry::Vacant(v) => v.set(0u)
+            };
+            *count += 1;
         }
     }
 
@@ -65,45 +71,17 @@ fn main() {
     crates.retain(|name| interacts.contains(name));
     println!("filtered crates: {}", crates.len());
 
-    let graph = Graph {
-        crates: crates,
-        deps: edges,
-    };
-    dot::render(&graph, &mut std::io::stdout()).ok().expect("bad render");
-}
-
-
-struct Graph {
-    crates: Vec<String>,
-    deps: Vec<(String, String)>,
-}
-
-impl<'a> dot::Labeller<'a, String, (String, String)> for Graph {
-    fn graph_id(&'a self) -> dot::Id<'a> {
-        dot::Id::new("cratesiodeps".to_string()).ok().expect("bad graph id")
+    println!("digraph cratesio {{");
+    for krate in crates.iter() {
+        let count = rev_dep_count.get(krate).map_or(0, |n| *n);
+        println!("  {ident}[label=\"{name}\" href=\"https://crates.io/crates/{name}\" fontsize={size}]",
+                 ident = krate.replace("-", "_"),
+                 name = krate,
+                 size = 14.0 + count as f64 / 2.0);
+    }
+    for &(ref source, ref target) in edges.iter() {
+        println!("  {} -> {}", source.replace("-", "_"), target.replace("-", "_"))
     }
 
-    fn node_id(&'a self, n: &String) -> dot::Id<'a> {
-        dot::Id::new(n.replace("-", "_")).ok().expect("bad id")
-    }
-
-    fn node_label<'b>(&self, n: &String) -> dot::LabelText<'a> {
-        dot::LabelStr(format!("<a href=\"https://crates.io/crates/{0}\">{0}</a>", n).into_cow())
-    }
-}
-
-impl<'a> dot::GraphWalk<'a, String, (String, String)> for Graph {
-    fn nodes(&self) -> dot::Nodes<'a, String> {
-        self.crates.clone().into_cow()
-    }
-    fn edges(&self) -> dot::Edges<'a, (String, String)> {
-        self.deps.clone().into_cow()
-    }
-
-    fn source(&self, e: &(String, String)) -> String {
-        e.0.clone()
-    }
-    fn target(&self, e: &(String, String)) -> String {
-        e.1.clone()
-    }
+    println!("}}");
 }
