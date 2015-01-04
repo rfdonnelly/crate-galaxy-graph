@@ -1,2 +1,4 @@
 /target
 /crates.io-index
+/out*.dot
+/out*.svg
