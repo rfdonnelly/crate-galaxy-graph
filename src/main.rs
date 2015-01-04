@@ -31,6 +31,7 @@ struct DepInfo {
     kind: Option<String>
 }
 
+// shallowly download the index, if necessary
 fn fetch_index() {
     if Path::new("crates.io-index").exists() {
         return
@@ -59,21 +60,30 @@ fn main() {
 
     for path in glob::glob_with("crates.io-index/*/*/*", &opts)
                     .chain(glob::glob_with("crates.io-index/[12]/*", &opts)) {
+
         let file = File::open(&path).unwrap();
         let last_line = BufferedReader::new(file).lines().last().unwrap().unwrap();
         let crate_info: CrateInfo = rustc_serialize::json::decode(&*last_line).unwrap();
 
         crates.push(crate_info.name.clone());
+
         let mut deps = crate_info.deps.iter()
+            // remove dev dependencies
             .filter(|d| d.kind.as_ref().map_or(true, |s| &**s != "dev"))
+            // we only need the name
             .map(|d| &d.name)
             .collect::<Vec<_>>();
+
+        // it has dependencies, it links into the package ecosystem, yay!
         if !deps.is_empty() {
             interacts.insert(crate_info.name.clone());
         }
 
+        // remove any duplicates
         deps.sort();
         deps.dedup();
+
+        // register all the dependencies
         for &dep_name in deps.iter() {
             interacts.insert(dep_name.clone());
             edges.push((crate_info.name.clone(), dep_name.clone()));
@@ -86,14 +96,14 @@ fn main() {
         }
     }
 
-    println!("total crates: {}", crates.len());
-    crates.retain(|name| // interacts.contains(name) &&
+    crates.retain(|name| // interacts.contains(name) && // done externally
                   rev_dep_count.get(name).map_or(true, |n| *n <= MAX_REV_DEP_COUNT));
     edges.retain(|&(ref source, ref target)|
                  rev_dep_count.get(source).map_or(true, |n| *n <= MAX_REV_DEP_COUNT) &&
                  rev_dep_count.get(target).map_or(true, |n| *n <= MAX_REV_DEP_COUNT));
-    println!("filtered crates: {}", crates.len());
 
+    // it would be nice to use the `graphviz` crate, but that doesn't
+    // seem to allow attaching arbitrary attributes at the moment.
     println!("digraph cratesio {{");
     for krate in crates.iter() {
         let count = rev_dep_count.get(krate).map_or(0, |n| *n);
