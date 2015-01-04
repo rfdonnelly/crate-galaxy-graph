@@ -6,6 +6,8 @@ use std::borrow::IntoCow;
 use std::collections::{HashMap, HashSet, hash_map};
 use std::io::{BufferedReader, File};
 
+const MAX_REV_DEP_COUNT: uint = 100;
+
 #[derive(RustcDecodable)]
 #[allow(dead_code)]
 struct CrateInfo {
@@ -68,7 +70,11 @@ fn main() {
     }
 
     println!("total crates: {}", crates.len());
-    crates.retain(|name| interacts.contains(name));
+    crates.retain(|name| // interacts.contains(name) &&
+                  rev_dep_count.get(name).map_or(true, |n| *n <= MAX_REV_DEP_COUNT));
+    edges.retain(|&(ref source, ref target)|
+                 rev_dep_count.get(source).map_or(true, |n| *n <= MAX_REV_DEP_COUNT) &&
+                 rev_dep_count.get(target).map_or(true, |n| *n <= MAX_REV_DEP_COUNT));
     println!("filtered crates: {}", crates.len());
 
     println!("digraph cratesio {{");
