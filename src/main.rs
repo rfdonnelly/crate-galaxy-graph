@@ -38,7 +38,8 @@ fn main() {
     let mut edges = vec![];
     let mut interacts = HashSet::new();
 
-    for path in glob::glob_with("crates.io-index/*/*/*", &opts) {
+    for path in glob::glob_with("crates.io-index/*/*/*", &opts)
+                    .chain(glob::glob_with("crates.io-index/[12]/*", &opts)) {
         let file = File::open(&path).unwrap();
         let last_line = BufferedReader::new(file).lines().last().unwrap().unwrap();
         let crate_info: CrateInfo = rustc_serialize::json::decode(&*last_line).unwrap();
