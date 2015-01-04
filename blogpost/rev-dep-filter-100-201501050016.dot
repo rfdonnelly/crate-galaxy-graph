@@ -1,0 +1,1658 @@
+digraph cratesio {
+	GSL	 [fontsize=14.5,
+		href="https://crates.io/crates/GSL",
+		label=GSL];
+	csv	 [fontsize=14.5,
+		href="https://crates.io/crates/csv",
+		label=csv];
+	rustc_serialize	 [fontsize=33,
+		href="https://crates.io/crates/rustc-serialize",
+		label="rustc-serialize"];
+	csv -> rustc_serialize;
+	dht	 [fontsize=14,
+		href="https://crates.io/crates/dht",
+		label=dht];
+	num	 [fontsize=18,
+		href="https://crates.io/crates/num",
+		label=num];
+	dht -> num;
+	bencode	 [fontsize=14.5,
+		href="https://crates.io/crates/bencode",
+		label=bencode];
+	dht -> bencode;
+	ecc	 [fontsize=14,
+		href="https://crates.io/crates/ecc",
+		label=ecc];
+	ecc -> num;
+	ecs	 [fontsize=14,
+		href="https://crates.io/crates/ecs",
+		label=ecs];
+	uuid	 [fontsize=18,
+		href="https://crates.io/crates/uuid",
+		label=uuid];
+	ecs -> uuid;
+	gcc	 [fontsize=19.5,
+		href="https://crates.io/crates/gcc",
+		label=gcc];
+	hue	 [fontsize=14,
+		href="https://crates.io/crates/hue",
+		label=hue];
+	hyper	 [fontsize=18.5,
+		href="https://crates.io/crates/hyper",
+		label=hyper];
+	hue -> hyper;
+	irc	 [fontsize=14,
+		href="https://crates.io/crates/irc",
+		label=irc];
+	encoding	 [fontsize=17,
+		href="https://crates.io/crates/encoding",
+		label=encoding];
+	irc -> encoding;
+	openssl	 [fontsize=18,
+		href="https://crates.io/crates/openssl",
+		label=openssl];
+	irc -> openssl;
+	irc -> rustc_serialize;
+	time	 [fontsize=34.5,
+		href="https://crates.io/crates/time",
+		label=time];
+	irc -> time;
+	jit	 [fontsize=14.5,
+		href="https://crates.io/crates/jit",
+		label=jit];
+	jit_macros	 [fontsize=14.5,
+		href="https://crates.io/crates/jit_macros",
+		label=jit_macros];
+	jit -> jit_macros;
+	libjit_sys	 [fontsize=14.5,
+		href="https://crates.io/crates/libjit-sys",
+		label="libjit-sys"];
+	jit -> libjit_sys;
+	log	 [fontsize=22,
+		href="https://crates.io/crates/log",
+		label=log];
+	regex	 [fontsize=18,
+		href="https://crates.io/crates/regex",
+		label=regex];
+	log -> regex;
+	lzf	 [fontsize=14,
+		href="https://crates.io/crates/lzf",
+		label=lzf];
+	lzf -> gcc;
+	mio	 [fontsize=14.5,
+		href="https://crates.io/crates/mio",
+		label=mio];
+	nix	 [fontsize=15,
+		href="https://crates.io/crates/nix",
+		label=nix];
+	mio -> nix;
+	num -> rustc_serialize;
+	obj	 [fontsize=14,
+		href="https://crates.io/crates/obj",
+		label=obj];
+	genmesh	 [fontsize=14.5,
+		href="https://crates.io/crates/genmesh",
+		label=genmesh];
+	obj -> genmesh;
+	peg	 [fontsize=14.5,
+		href="https://crates.io/crates/peg",
+		label=peg];
+	phf	 [fontsize=14.5,
+		href="https://crates.io/crates/phf",
+		label=phf];
+	phf_shared	 [fontsize=15,
+		href="https://crates.io/crates/phf_shared",
+		label=phf_shared];
+	phf -> phf_shared;
+	url	 [fontsize=23,
+		href="https://crates.io/crates/url",
+		label=url];
+	url -> encoding;
+	url -> rustc_serialize;
+	usb	 [fontsize=14.5,
+		href="https://crates.io/crates/usb",
+		label=usb];
+	utp	 [fontsize=14,
+		href="https://crates.io/crates/utp",
+		label=utp];
+	utp -> time;
+	xsv	 [fontsize=14,
+		href="https://crates.io/crates/xsv",
+		label=xsv];
+	xsv -> csv;
+	docopt	 [fontsize=17.5,
+		href="https://crates.io/crates/docopt",
+		label=docopt];
+	xsv -> docopt;
+	streaming_stats	 [fontsize=14.5,
+		href="https://crates.io/crates/streaming-stats",
+		label="streaming-stats"];
+	xsv -> streaming_stats;
+	tabwriter	 [fontsize=14.5,
+		href="https://crates.io/crates/tabwriter",
+		label=tabwriter];
+	xsv -> tabwriter;
+	zip	 [fontsize=14,
+		href="https://crates.io/crates/zip",
+		label=zip];
+	bzip2	 [fontsize=14.5,
+		href="https://crates.io/crates/bzip2",
+		label=bzip2];
+	zip -> bzip2;
+	flate2	 [fontsize=15,
+		href="https://crates.io/crates/flate2",
+		label=flate2];
+	zip -> flate2;
+	zip -> time;
+	zmq	 [fontsize=14.5,
+		href="https://crates.io/crates/zmq",
+		label=zmq];
+	zmq -> time;
+	zmq_sys	 [fontsize=14.5,
+		href="https://crates.io/crates/zmq-sys",
+		label="zmq-sys"];
+	zmq -> zmq_sys;
+	Memoirs	 [fontsize=14,
+		href="https://crates.io/crates/Memoirs",
+		label=Memoirs];
+	lazy_static	 [fontsize=16,
+		href="https://crates.io/crates/lazy_static",
+		label=lazy_static];
+	Memoirs -> lazy_static;
+	acacia	 [fontsize=14,
+		href="https://crates.io/crates/acacia",
+		label=acacia];
+	nalgebra	 [fontsize=15.5,
+		href="https://crates.io/crates/nalgebra",
+		label=nalgebra];
+	acacia -> nalgebra;
+	quickcheck	 [fontsize=16,
+		href="https://crates.io/crates/quickcheck",
+		label=quickcheck];
+	acacia -> quickcheck;
+	quickcheck_macros	 [fontsize=15.5,
+		href="https://crates.io/crates/quickcheck_macros",
+		label=quickcheck_macros];
+	acacia -> quickcheck_macros;
+	algebloat	 [fontsize=14,
+		href="https://crates.io/crates/algebloat",
+		label=algebloat];
+	algebloat_macros	 [fontsize=14.5,
+		href="https://crates.io/crates/algebloat_macros",
+		label=algebloat_macros];
+	algebloat -> algebloat_macros;
+	algebra	 [fontsize=14.5,
+		href="https://crates.io/crates/algebra",
+		label=algebra];
+	allegro	 [fontsize=18,
+		href="https://crates.io/crates/allegro",
+		label=allegro];
+	allegro_sys	 [fontsize=16.5,
+		href="https://crates.io/crates/allegro-sys",
+		label="allegro-sys"];
+	allegro -> allegro_sys;
+	allegro_acodec	 [fontsize=14.5,
+		href="https://crates.io/crates/allegro_acodec",
+		label=allegro_acodec];
+	allegro_acodec -> allegro;
+	allegro_acodec_sys	 [fontsize=14.5,
+		href="https://crates.io/crates/allegro_acodec-sys",
+		label="allegro_acodec-sys"];
+	allegro_acodec -> allegro_acodec_sys;
+	allegro_audio	 [fontsize=15,
+		href="https://crates.io/crates/allegro_audio",
+		label=allegro_audio];
+	allegro_acodec -> allegro_audio;
+	allegro_audio -> allegro;
+	allegro_audio_sys	 [fontsize=14.5,
+		href="https://crates.io/crates/allegro_audio-sys",
+		label="allegro_audio-sys"];
+	allegro_audio -> allegro_audio_sys;
+	allegro_audio_sys -> allegro_sys;
+	allegro_dialog	 [fontsize=14,
+		href="https://crates.io/crates/allegro_dialog",
+		label=allegro_dialog];
+	allegro_dialog -> allegro;
+	allegro_dialog_sys	 [fontsize=14.5,
+		href="https://crates.io/crates/allegro_dialog-sys",
+		label="allegro_dialog-sys"];
+	allegro_dialog -> allegro_dialog_sys;
+	allegro_dialog_sys -> allegro_sys;
+	allegro_examples	 [fontsize=14,
+		href="https://crates.io/crates/allegro_examples",
+		label=allegro_examples];
+	allegro_examples -> allegro;
+	allegro_examples -> allegro_acodec;
+	allegro_examples -> allegro_audio;
+	allegro_font	 [fontsize=15,
+		href="https://crates.io/crates/allegro_font",
+		label=allegro_font];
+	allegro_examples -> allegro_font;
+	allegro_image	 [fontsize=14.5,
+		href="https://crates.io/crates/allegro_image",
+		label=allegro_image];
+	allegro_examples -> allegro_image;
+	allegro_primitives	 [fontsize=14.5,
+		href="https://crates.io/crates/allegro_primitives",
+		label=allegro_primitives];
+	allegro_examples -> allegro_primitives;
+	allegro_ttf	 [fontsize=14.5,
+		href="https://crates.io/crates/allegro_ttf",
+		label=allegro_ttf];
+	allegro_examples -> allegro_ttf;
+	allegro_font -> allegro;
+	allegro_font_sys	 [fontsize=15,
+		href="https://crates.io/crates/allegro_font-sys",
+		label="allegro_font-sys"];
+	allegro_font -> allegro_font_sys;
+	allegro_font_sys -> allegro_sys;
+	allegro_image -> allegro;
+	allegro_image_sys	 [fontsize=14.5,
+		href="https://crates.io/crates/allegro_image-sys",
+		label="allegro_image-sys"];
+	allegro_image -> allegro_image_sys;
+	allegro_primitives -> allegro;
+	allegro_primitives_sys	 [fontsize=14.5,
+		href="https://crates.io/crates/allegro_primitives-sys",
+		label="allegro_primitives-sys"];
+	allegro_primitives -> allegro_primitives_sys;
+	allegro_primitives_sys -> allegro_sys;
+	allegro_ttf -> allegro;
+	allegro_ttf -> allegro_font;
+	allegro_ttf_sys	 [fontsize=14.5,
+		href="https://crates.io/crates/allegro_ttf-sys",
+		label="allegro_ttf-sys"];
+	allegro_ttf -> allegro_ttf_sys;
+	allegro_ttf_sys -> allegro_font_sys;
+	allocator	 [fontsize=14,
+		href="https://crates.io/crates/allocator",
+		label=allocator];
+	checked_cast	 [fontsize=14.5,
+		href="https://crates.io/crates/checked_cast",
+		label=checked_cast];
+	allocator -> checked_cast;
+	alsa_sys	 [fontsize=14.5,
+		href="https://crates.io/crates/alsa-sys",
+		label="alsa-sys"];
+	pkg_config	 [fontsize=22,
+		href="https://crates.io/crates/pkg-config",
+		label="pkg-config"];
+	alsa_sys -> pkg_config;
+	anymap	 [fontsize=14.5,
+		href="https://crates.io/crates/anymap",
+		label=anymap];
+	artifact	 [fontsize=14,
+		href="https://crates.io/crates/artifact",
+		label=artifact];
+	artifact -> lazy_static;
+	astar	 [fontsize=14,
+		href="https://crates.io/crates/astar",
+		label=astar];
+	astar -> num;
+	base32	 [fontsize=14,
+		href="https://crates.io/crates/base32",
+		label=base32];
+	base32 -> quickcheck;
+	base32 -> quickcheck_macros;
+	basehangul	 [fontsize=14,
+		href="https://crates.io/crates/basehangul",
+		label=basehangul];
+	encoding_index_korean	 [fontsize=15,
+		href="https://crates.io/crates/encoding-index-korean",
+		label="encoding-index-korean"];
+	basehangul -> encoding_index_korean;
+	basic_hll	 [fontsize=14,
+		href="https://crates.io/crates/basic-hll",
+		label="basic-hll"];
+	basic_hll -> algebra;
+	bchannel	 [fontsize=14.5,
+		href="https://crates.io/crates/bchannel",
+		label=bchannel];
+	bencode -> rustc_serialize;
+	better_range	 [fontsize=14,
+		href="https://crates.io/crates/better_range",
+		label=better_range];
+	stainless	 [fontsize=16.5,
+		href="https://crates.io/crates/stainless",
+		label=stainless];
+	better_range -> stainless;
+	bincode	 [fontsize=14.5,
+		href="https://crates.io/crates/bincode",
+		label=bincode];
+	bincode -> rustc_serialize;
+	blas	 [fontsize=14.5,
+		href="https://crates.io/crates/blas",
+		label=blas];
+	libblas_sys	 [fontsize=15,
+		href="https://crates.io/crates/libblas-sys",
+		label="libblas-sys"];
+	blas -> libblas_sys;
+	bodyparser	 [fontsize=14,
+		href="https://crates.io/crates/bodyparser",
+		label=bodyparser];
+	iron	 [fontsize=18,
+		href="https://crates.io/crates/iron",
+		label=iron];
+	bodyparser -> iron;
+	buildable	 [fontsize=16,
+		href="https://crates.io/crates/buildable",
+		label=buildable];
+	bzip2_sys	 [fontsize=14.5,
+		href="https://crates.io/crates/bzip2-sys",
+		label="bzip2-sys"];
+	bzip2 -> bzip2_sys;
+	bzip2_sys -> gcc;
+	capnp	 [fontsize=15,
+		href="https://crates.io/crates/capnp",
+		label=capnp];
+	capnp_rpc	 [fontsize=14,
+		href="https://crates.io/crates/capnp-rpc",
+		label="capnp-rpc"];
+	capnp_rpc -> capnp;
+	capnpc	 [fontsize=14.5,
+		href="https://crates.io/crates/capnpc",
+		label=capnpc];
+	capnp_rpc -> capnpc;
+	capnpc -> capnp;
+	cargo_rub	 [fontsize=14,
+		href="https://crates.io/crates/cargo_rub",
+		label=cargo_rub];
+	cargo_rub -> buildable;
+	cargo_rub -> docopt;
+	cfor	 [fontsize=14.5,
+		href="https://crates.io/crates/cfor",
+		label=cfor];
+	cgmath	 [fontsize=14.5,
+		href="https://crates.io/crates/cgmath",
+		label=cgmath];
+	char_set	 [fontsize=14,
+		href="https://crates.io/crates/char_set",
+		label=char_set];
+	integer_set	 [fontsize=14.5,
+		href="https://crates.io/crates/integer_set",
+		label=integer_set];
+	char_set -> integer_set;
+	interval	 [fontsize=15,
+		href="https://crates.io/crates/interval",
+		label=interval];
+	char_set -> interval;
+	chrono	 [fontsize=14.5,
+		href="https://crates.io/crates/chrono",
+		label=chrono];
+	chrono -> time;
+	civet	 [fontsize=14,
+		href="https://crates.io/crates/civet",
+		label=civet];
+	civet_sys	 [fontsize=14.5,
+		href="https://crates.io/crates/civet-sys",
+		label="civet-sys"];
+	civet -> civet_sys;
+	conduit	 [fontsize=19,
+		href="https://crates.io/crates/conduit",
+		label=conduit];
+	civet -> conduit;
+	semver	 [fontsize=17,
+		href="https://crates.io/crates/semver",
+		label=semver];
+	civet -> semver;
+	cld2	 [fontsize=14,
+		href="https://crates.io/crates/cld2",
+		label=cld2];
+	cld2_sys	 [fontsize=14.5,
+		href="https://crates.io/crates/cld2-sys",
+		label="cld2-sys"];
+	cld2 -> cld2_sys;
+	cld2_sys -> gcc;
+	toml	 [fontsize=15,
+		href="https://crates.io/crates/toml",
+		label=toml];
+	cld2_sys -> toml;
+	clj_rub	 [fontsize=14,
+		href="https://crates.io/crates/clj_rub",
+		label=clj_rub];
+	clj_rub -> buildable;
+	clj_rub -> docopt;
+	coinaddress	 [fontsize=14,
+		href="https://crates.io/crates/coinaddress",
+		label=coinaddress];
+	coinaddress -> num;
+	collect	 [fontsize=15,
+		href="https://crates.io/crates/collect",
+		label=collect];
+	traverse	 [fontsize=14.5,
+		href="https://crates.io/crates/traverse",
+		label=traverse];
+	collect -> traverse;
+	compile_msg	 [fontsize=14.5,
+		href="https://crates.io/crates/compile_msg",
+		label=compile_msg];
+	conduit -> semver;
+	conduit_conditional_get	 [fontsize=14,
+		href="https://crates.io/crates/conduit-conditional-get",
+		label="conduit-conditional-get"];
+	conduit_conditional_get -> conduit;
+	conduit_middleware	 [fontsize=16,
+		href="https://crates.io/crates/conduit-middleware",
+		label="conduit-middleware"];
+	conduit_conditional_get -> conduit_middleware;
+	conduit_conditional_get -> time;
+	conduit_cookie	 [fontsize=14,
+		href="https://crates.io/crates/conduit-cookie",
+		label="conduit-cookie"];
+	conduit_cookie -> conduit;
+	conduit_cookie -> conduit_middleware;
+	cookie	 [fontsize=15.5,
+		href="https://crates.io/crates/cookie",
+		label=cookie];
+	conduit_cookie -> cookie;
+	conduit_cookie -> rustc_serialize;
+	conduit_json_parser	 [fontsize=14,
+		href="https://crates.io/crates/conduit-json-parser",
+		label="conduit-json-parser"];
+	conduit_json_parser -> conduit;
+	conduit_json_parser -> conduit_middleware;
+	conduit_utils	 [fontsize=14.5,
+		href="https://crates.io/crates/conduit-utils",
+		label="conduit-utils"];
+	conduit_json_parser -> conduit_utils;
+	conduit_json_parser -> rustc_serialize;
+	conduit_json_parser -> semver;
+	conduit_log_requests	 [fontsize=14,
+		href="https://crates.io/crates/conduit-log-requests",
+		label="conduit-log-requests"];
+	conduit_log_requests -> log;
+	conduit_log_requests -> conduit;
+	conduit_log_requests -> conduit_middleware;
+	conduit_log_requests -> time;
+	conduit_middleware -> conduit;
+	conduit_mime_types	 [fontsize=14.5,
+		href="https://crates.io/crates/conduit-mime-types",
+		label="conduit-mime-types"];
+	conduit_mime_types -> rustc_serialize;
+	conduit_router	 [fontsize=14,
+		href="https://crates.io/crates/conduit-router",
+		label="conduit-router"];
+	conduit_router -> conduit;
+	route_recognizer	 [fontsize=15,
+		href="https://crates.io/crates/route-recognizer",
+		label="route-recognizer"];
+	conduit_router -> route_recognizer;
+	conduit_static	 [fontsize=14,
+		href="https://crates.io/crates/conduit-static",
+		label="conduit-static"];
+	conduit_static -> conduit;
+	conduit_static -> conduit_mime_types;
+	conduit_static -> time;
+	conduit_test	 [fontsize=14,
+		href="https://crates.io/crates/conduit-test",
+		label="conduit-test"];
+	conduit_test -> conduit;
+	conduit_test -> semver;
+	conduit_utils -> conduit;
+	conduit_utils -> semver;
+	cookie -> url;
+	cookie -> openssl;
+	cookie -> rustc_serialize;
+	cookie -> time;
+	cpal	 [fontsize=14,
+		href="https://crates.io/crates/cpal",
+		label=cpal];
+	cpal -> alsa_sys;
+	winapi	 [fontsize=15,
+		href="https://crates.io/crates/winapi",
+		label=winapi];
+	cpal -> winapi;
+	crc32	 [fontsize=14.5,
+		href="https://crates.io/crates/crc32",
+		label=crc32];
+	crdt	 [fontsize=14,
+		href="https://crates.io/crates/crdt",
+		label=crdt];
+	crdt -> quickcheck;
+	crdt -> quickcheck_macros;
+	cssparser	 [fontsize=14,
+		href="https://crates.io/crates/cssparser",
+		label=cssparser];
+	cssparser -> encoding;
+	curl	 [fontsize=15.5,
+		href="https://crates.io/crates/curl",
+		label=curl];
+	curl -> url;
+	curl_sys	 [fontsize=14.5,
+		href="https://crates.io/crates/curl-sys",
+		label="curl-sys"];
+	curl -> curl_sys;
+	libz_sys	 [fontsize=15,
+		href="https://crates.io/crates/libz-sys",
+		label="libz-sys"];
+	curl_sys -> libz_sys;
+	openssl_sys	 [fontsize=16,
+		href="https://crates.io/crates/openssl-sys",
+		label="openssl-sys"];
+	curl_sys -> openssl_sys;
+	curl_sys -> pkg_config;
+	date	 [fontsize=14.5,
+		href="https://crates.io/crates/date",
+		label=date];
+	date -> time;
+	db_key	 [fontsize=15,
+		href="https://crates.io/crates/db_key",
+		label=db_key];
+	debug_unreachable	 [fontsize=14.5,
+		href="https://crates.io/crates/debug_unreachable",
+		label=debug_unreachable];
+	deuterium	 [fontsize=14.5,
+		href="https://crates.io/crates/deuterium",
+		label=deuterium];
+	postgres	 [fontsize=16.5,
+		href="https://crates.io/crates/postgres",
+		label=postgres];
+	deuterium -> postgres;
+	deuterium -> time;
+	deuterium -> uuid;
+	deuterium_orm	 [fontsize=14,
+		href="https://crates.io/crates/deuterium_orm",
+		label=deuterium_orm];
+	deuterium_orm -> deuterium;
+	deuterium_orm -> postgres;
+	r2d2_postgres	 [fontsize=14.5,
+		href="https://crates.io/crates/r2d2_postgres",
+		label=r2d2_postgres];
+	deuterium_orm -> r2d2_postgres;
+	deuterium_orm -> time;
+	diecast	 [fontsize=14,
+		href="https://crates.io/crates/diecast",
+		label=diecast];
+	diecast -> anymap;
+	glob	 [fontsize=15,
+		href="https://crates.io/crates/glob",
+		label=glob];
+	diecast -> glob;
+	distributions	 [fontsize=14,
+		href="https://crates.io/crates/distributions",
+		label=distributions];
+	distributions -> GSL;
+	docopt -> regex;
+	docopt -> rustc_serialize;
+	docopt_macros	 [fontsize=15,
+		href="https://crates.io/crates/docopt_macros",
+		label=docopt_macros];
+	docopt_macros -> docopt;
+	drossel	 [fontsize=14,
+		href="https://crates.io/crates/drossel",
+		label=drossel];
+	drossel_journal	 [fontsize=14.5,
+		href="https://crates.io/crates/drossel-journal",
+		label="drossel-journal"];
+	drossel -> drossel_journal;
+	leveldb	 [fontsize=15,
+		href="https://crates.io/crates/leveldb",
+		label=leveldb];
+	drossel -> leveldb;
+	strand	 [fontsize=14.5,
+		href="https://crates.io/crates/strand",
+		label=strand];
+	drossel -> strand;
+	drossel_journal -> db_key;
+	drossel_journal -> leveldb;
+	duktape	 [fontsize=14,
+		href="https://crates.io/crates/duktape",
+		label=duktape];
+	duktape_sys	 [fontsize=14.5,
+		href="https://crates.io/crates/duktape_sys",
+		label=duktape_sys];
+	duktape -> duktape_sys;
+	duktape_sys -> gcc;
+	eccles	 [fontsize=14,
+		href="https://crates.io/crates/eccles",
+		label=eccles];
+	eccles -> time;
+	email	 [fontsize=14,
+		href="https://crates.io/crates/email",
+		label=email];
+	email -> chrono;
+	email -> encoding;
+	email -> lazy_static;
+	email -> time;
+	encoding_index_japanese	 [fontsize=14.5,
+		href="https://crates.io/crates/encoding-index-japanese",
+		label="encoding-index-japanese"];
+	encoding -> encoding_index_japanese;
+	encoding -> encoding_index_korean;
+	encoding_index_simpchinese	 [fontsize=14.5,
+		href="https://crates.io/crates/encoding-index-simpchinese",
+		label="encoding-index-simpchinese"];
+	encoding -> encoding_index_simpchinese;
+	encoding_index_singlebyte	 [fontsize=14.5,
+		href="https://crates.io/crates/encoding-index-singlebyte",
+		label="encoding-index-singlebyte"];
+	encoding -> encoding_index_singlebyte;
+	encoding_index_tradchinese	 [fontsize=14.5,
+		href="https://crates.io/crates/encoding-index-tradchinese",
+		label="encoding-index-tradchinese"];
+	encoding -> encoding_index_tradchinese;
+	encoding_index_tests	 [fontsize=16.5,
+		href="https://crates.io/crates/encoding_index_tests",
+		label=encoding_index_tests];
+	encoding_index_japanese -> encoding_index_tests;
+	encoding_index_korean -> encoding_index_tests;
+	encoding_index_simpchinese -> encoding_index_tests;
+	encoding_index_singlebyte -> encoding_index_tests;
+	encoding_index_tradchinese -> encoding_index_tests;
+	enforce	 [fontsize=14,
+		href="https://crates.io/crates/enforce",
+		label=enforce];
+	enforce -> stainless;
+	epsilonz	 [fontsize=14,
+		href="https://crates.io/crates/epsilonz",
+		label=epsilonz];
+	epsilonz_algebra	 [fontsize=15.5,
+		href="https://crates.io/crates/epsilonz_algebra",
+		label=epsilonz_algebra];
+	epsilonz -> epsilonz_algebra;
+	fingertree	 [fontsize=15,
+		href="https://crates.io/crates/fingertree",
+		label=fingertree];
+	epsilonz -> fingertree;
+	free	 [fontsize=16,
+		href="https://crates.io/crates/free",
+		label=free];
+	epsilonz -> free;
+	free_macros	 [fontsize=15,
+		href="https://crates.io/crates/free_macros",
+		label=free_macros];
+	epsilonz -> free_macros;
+	monad	 [fontsize=14.5,
+		href="https://crates.io/crates/monad",
+		label=monad];
+	epsilonz -> monad;
+	monad_macros	 [fontsize=15,
+		href="https://crates.io/crates/monad_macros",
+		label=monad_macros];
+	epsilonz -> monad_macros;
+	morphism	 [fontsize=15,
+		href="https://crates.io/crates/morphism",
+		label=morphism];
+	epsilonz -> morphism;
+	pipes	 [fontsize=14.5,
+		href="https://crates.io/crates/pipes",
+		label=pipes];
+	epsilonz -> pipes;
+	pretty	 [fontsize=14.5,
+		href="https://crates.io/crates/pretty",
+		label=pretty];
+	epsilonz -> pretty;
+	rope	 [fontsize=14.5,
+		href="https://crates.io/crates/rope",
+		label=rope];
+	epsilonz -> rope;
+	tailrec	 [fontsize=15,
+		href="https://crates.io/crates/tailrec",
+		label=tailrec];
+	epsilonz -> tailrec;
+	error	 [fontsize=15,
+		href="https://crates.io/crates/error",
+		label=error];
+	typeable	 [fontsize=15,
+		href="https://crates.io/crates/typeable",
+		label=typeable];
+	error -> typeable;
+	event	 [fontsize=14.5,
+		href="https://crates.io/crates/event",
+		label=event];
+	event -> log;
+	event -> mio;
+	event_emitter	 [fontsize=14,
+		href="https://crates.io/crates/event-emitter",
+		label="event-emitter"];
+	event_emitter -> event;
+	forever	 [fontsize=14.5,
+		href="https://crates.io/crates/forever",
+		label=forever];
+	event_emitter -> forever;
+	typemap	 [fontsize=15.5,
+		href="https://crates.io/crates/typemap",
+		label=typemap];
+	event_emitter -> typemap;
+	unsafe_any	 [fontsize=15.5,
+		href="https://crates.io/crates/unsafe-any",
+		label="unsafe-any"];
+	event_emitter -> unsafe_any;
+	event_emitter -> uuid;
+	eventfd	 [fontsize=14.5,
+		href="https://crates.io/crates/eventfd",
+		label=eventfd];
+	extprim	 [fontsize=14.5,
+		href="https://crates.io/crates/extprim",
+		label=extprim];
+	extprim_literals	 [fontsize=14,
+		href="https://crates.io/crates/extprim_literals",
+		label=extprim_literals];
+	extprim_literals -> extprim;
+	fast_brainfuck	 [fontsize=14,
+		href="https://crates.io/crates/fast_brainfuck",
+		label=fast_brainfuck];
+	fast_brainfuck -> jit;
+	fern	 [fontsize=14.5,
+		href="https://crates.io/crates/fern",
+		label=fern];
+	fern_macros	 [fontsize=14,
+		href="https://crates.io/crates/fern_macros",
+		label=fern_macros];
+	fern_macros -> fern;
+	fftw3	 [fontsize=14,
+		href="https://crates.io/crates/fftw3",
+		label=fftw3];
+	fftw3 -> num;
+	fftw3_sys	 [fontsize=14.5,
+		href="https://crates.io/crates/fftw3-sys",
+		label="fftw3-sys"];
+	fftw3 -> fftw3_sys;
+	strided	 [fontsize=14.5,
+		href="https://crates.io/crates/strided",
+		label=strided];
+	fftw3 -> strided;
+	fftw3_sys -> pkg_config;
+	fingertree -> epsilonz_algebra;
+	miniz_sys	 [fontsize=14.5,
+		href="https://crates.io/crates/miniz-sys",
+		label="miniz-sys"];
+	flate2 -> miniz_sys;
+	fontconfig	 [fontsize=14,
+		href="https://crates.io/crates/fontconfig",
+		label=fontconfig];
+	fontconfig_sys	 [fontsize=14.5,
+		href="https://crates.io/crates/fontconfig-sys",
+		label="fontconfig-sys"];
+	fontconfig -> fontconfig_sys;
+	fontconfig_sys -> pkg_config;
+	fps_counter	 [fontsize=14,
+		href="https://crates.io/crates/fps_counter",
+		label=fps_counter];
+	fps_counter -> time;
+	fractran_macros	 [fontsize=14,
+		href="https://crates.io/crates/fractran_macros",
+		label=fractran_macros];
+	fractran_macros -> num;
+	slow_primes	 [fontsize=14.5,
+		href="https://crates.io/crates/slow_primes",
+		label=slow_primes];
+	fractran_macros -> slow_primes;
+	free -> free_macros;
+	freetype_rs	 [fontsize=14,
+		href="https://crates.io/crates/freetype-rs",
+		label="freetype-rs"];
+	freetype_sys	 [fontsize=14.5,
+		href="https://crates.io/crates/freetype-sys",
+		label="freetype-sys"];
+	freetype_rs -> freetype_sys;
+	freetype_sys -> pkg_config;
+	fromxml	 [fontsize=14,
+		href="https://crates.io/crates/fromxml",
+		label=fromxml];
+	xml_rs	 [fontsize=15,
+		href="https://crates.io/crates/xml-rs",
+		label="xml-rs"];
+	fromxml -> xml_rs;
+	fuse	 [fontsize=14,
+		href="https://crates.io/crates/fuse",
+		label=fuse];
+	fuse -> log;
+	fuse -> time;
+	game2048	 [fontsize=14,
+		href="https://crates.io/crates/game2048",
+		label=game2048];
+	sdl2	 [fontsize=16.5,
+		href="https://crates.io/crates/sdl2",
+		label=sdl2];
+	game2048 -> sdl2;
+	sdl2_gfx	 [fontsize=14.5,
+		href="https://crates.io/crates/sdl2_gfx",
+		label=sdl2_gfx];
+	game2048 -> sdl2_gfx;
+	sdl2_ttf	 [fontsize=14.5,
+		href="https://crates.io/crates/sdl2_ttf",
+		label=sdl2_ttf];
+	game2048 -> sdl2_ttf;
+	geoip	 [fontsize=14,
+		href="https://crates.io/crates/geoip",
+		label=geoip];
+	geoip_sys	 [fontsize=14.5,
+		href="https://crates.io/crates/geoip-sys",
+		label="geoip-sys"];
+	geoip -> geoip_sys;
+	geoip -> rustc_serialize;
+	git2	 [fontsize=14,
+		href="https://crates.io/crates/git2",
+		label=git2];
+	git2 -> url;
+	libgit2_sys	 [fontsize=14.5,
+		href="https://crates.io/crates/libgit2-sys",
+		label="libgit2-sys"];
+	git2 -> libgit2_sys;
+	git2 -> time;
+	gl_common	 [fontsize=15.5,
+		href="https://crates.io/crates/gl_common",
+		label=gl_common];
+	gl_generator	 [fontsize=15.5,
+		href="https://crates.io/crates/gl_generator",
+		label=gl_generator];
+	gl_generator -> log;
+	gl_generator -> gl_common;
+	khronos_api	 [fontsize=14.5,
+		href="https://crates.io/crates/khronos_api",
+		label=khronos_api];
+	gl_generator -> khronos_api;
+	gl_generator -> xml_rs;
+	glium	 [fontsize=14,
+		href="https://crates.io/crates/glium",
+		label=glium];
+	glium -> cgmath;
+	glium -> compile_msg;
+	glium -> gl_generator;
+	glium_macros	 [fontsize=14.5,
+		href="https://crates.io/crates/glium_macros",
+		label=glium_macros];
+	glium -> glium_macros;
+	glutin	 [fontsize=14.5,
+		href="https://crates.io/crates/glutin",
+		label=glutin];
+	glium -> glutin;
+	glutin -> gl_common;
+	glutin -> gl_generator;
+	glutin -> winapi;
+	gmp_sys	 [fontsize=14.5,
+		href="https://crates.io/crates/gmp-sys",
+		label="gmp-sys"];
+	grabbag	 [fontsize=14,
+		href="https://crates.io/crates/grabbag",
+		label=grabbag];
+	grabbag_macros	 [fontsize=14.5,
+		href="https://crates.io/crates/grabbag_macros",
+		label=grabbag_macros];
+	grabbag -> grabbag_macros;
+	handlebars	 [fontsize=14,
+		href="https://crates.io/crates/handlebars",
+		label=handlebars];
+	handlebars -> log;
+	handlebars -> regex;
+	handlebars -> rustc_serialize;
+	heliotrope	 [fontsize=14,
+		href="https://crates.io/crates/heliotrope",
+		label=heliotrope];
+	heliotrope -> url;
+	heliotrope -> hyper;
+	hematite	 [fontsize=14,
+		href="https://crates.io/crates/hematite",
+		label=hematite];
+	hematite -> time;
+	hex2d	 [fontsize=14,
+		href="https://crates.io/crates/hex2d",
+		label=hex2d];
+	hex2d -> num;
+	hkdf	 [fontsize=14,
+		href="https://crates.io/crates/hkdf",
+		label=hkdf];
+	rust_crypto	 [fontsize=16,
+		href="https://crates.io/crates/rust-crypto",
+		label="rust-crypto"];
+	hkdf -> rust_crypto;
+	hkdf -> rustc_serialize;
+	hotspot	 [fontsize=14.5,
+		href="https://crates.io/crates/hotspot",
+		label=hotspot];
+	hyper -> log;
+	hyper -> url;
+	hyper -> cookie;
+	mime	 [fontsize=14.5,
+		href="https://crates.io/crates/mime",
+		label=mime];
+	hyper -> mime;
+	mucell	 [fontsize=14.5,
+		href="https://crates.io/crates/mucell",
+		label=mucell];
+	hyper -> mucell;
+	hyper -> openssl;
+	hyper -> rustc_serialize;
+	hyper -> time;
+	hyper -> typeable;
+	hyper -> unsafe_any;
+	image	 [fontsize=15.5,
+		href="https://crates.io/crates/image",
+		label=image];
+	img_hash	 [fontsize=14,
+		href="https://crates.io/crates/img_hash",
+		label=img_hash];
+	img_hash -> image;
+	inotify	 [fontsize=14.5,
+		href="https://crates.io/crates/inotify",
+		label=inotify];
+	integer_set -> interval;
+	intovec	 [fontsize=14.5,
+		href="https://crates.io/crates/intovec",
+		label=intovec];
+	iptrap	 [fontsize=14,
+		href="https://crates.io/crates/iptrap",
+		label=iptrap];
+	iptrap -> zmq;
+	iptrap -> time;
+	iron -> log;
+	iron -> url;
+	iron -> error;
+	iron -> hyper;
+	modifier	 [fontsize=14.5,
+		href="https://crates.io/crates/modifier",
+		label=modifier];
+	iron -> modifier;
+	plugin	 [fontsize=15,
+		href="https://crates.io/crates/plugin",
+		label=plugin];
+	iron -> plugin;
+	iron -> typemap;
+	iron_test	 [fontsize=14.5,
+		href="https://crates.io/crates/iron-test",
+		label="iron-test"];
+	iron_test -> url;
+	iron_test -> hyper;
+	iron_test -> intovec;
+	iron_test -> iron;
+	iron_test -> uuid;
+	json_macros	 [fontsize=14.5,
+		href="https://crates.io/crates/json_macros",
+		label=json_macros];
+	json_macros -> rustc_serialize;
+	jsonway	 [fontsize=14.5,
+		href="https://crates.io/crates/jsonway",
+		label=jsonway];
+	jsonway -> rustc_serialize;
+	julius	 [fontsize=14,
+		href="https://crates.io/crates/julius",
+		label=julius];
+	julius -> cfor;
+	k8055	 [fontsize=14,
+		href="https://crates.io/crates/k8055",
+		label=k8055];
+	k8055 -> usb;
+	kinetic_rust	 [fontsize=14,
+		href="https://crates.io/crates/kinetic-rust",
+		label="kinetic-rust"];
+	kinetic_rust -> docopt_macros;
+	protobuf	 [fontsize=14.5,
+		href="https://crates.io/crates/protobuf",
+		label=protobuf];
+	kinetic_rust -> protobuf;
+	kinetic_rust -> rust_crypto;
+	kiss3d	 [fontsize=14,
+		href="https://crates.io/crates/kiss3d",
+		label=kiss3d];
+	kiss3d -> nalgebra;
+	ncollide	 [fontsize=15,
+		href="https://crates.io/crates/ncollide",
+		label=ncollide];
+	kiss3d -> ncollide;
+	kiss3d -> time;
+	gl	 [fontsize=15,
+		href="https://crates.io/crates/gl",
+		label=gl];
+	kiss3d -> gl;
+	lambda	 [fontsize=14,
+		href="https://crates.io/crates/lambda",
+		label=lambda];
+	lambda -> morphism;
+	lapack	 [fontsize=14.5,
+		href="https://crates.io/crates/lapack",
+		label=lapack];
+	liblapack_sys	 [fontsize=14.5,
+		href="https://crates.io/crates/liblapack-sys",
+		label="liblapack-sys"];
+	lapack -> liblapack_sys;
+	lazy	 [fontsize=14.5,
+		href="https://crates.io/crates/lazy",
+		label=lazy];
+	lazy -> debug_unreachable;
+	oncemutex	 [fontsize=14.5,
+		href="https://crates.io/crates/oncemutex",
+		label=oncemutex];
+	lazy -> oncemutex;
+	leveldb -> db_key;
+	libaio	 [fontsize=14,
+		href="https://crates.io/crates/libaio",
+		label=libaio];
+	libaio -> eventfd;
+	libssh2_sys	 [fontsize=15,
+		href="https://crates.io/crates/libssh2-sys",
+		label="libssh2-sys"];
+	libgit2_sys -> libssh2_sys;
+	libgit2_sys -> openssl_sys;
+	libgit2_sys -> pkg_config;
+	libjit_sys -> pkg_config;
+	liblapack_sys -> libblas_sys;
+	liblmdb_sys	 [fontsize=14.5,
+		href="https://crates.io/crates/liblmdb-sys",
+		label="liblmdb-sys"];
+	libnanomsg	 [fontsize=14.5,
+		href="https://crates.io/crates/libnanomsg",
+		label=libnanomsg];
+	link_config	 [fontsize=14.5,
+		href="https://crates.io/crates/link-config",
+		label="link-config"];
+	libnanomsg -> link_config;
+	libressl_pnacl_sys	 [fontsize=14.5,
+		href="https://crates.io/crates/libressl-pnacl-sys",
+		label="libressl-pnacl-sys"];
+	pnacl_build_helper	 [fontsize=14.5,
+		href="https://crates.io/crates/pnacl-build-helper",
+		label="pnacl-build-helper"];
+	libressl_pnacl_sys -> pnacl_build_helper;
+	libssh2_sys -> libz_sys;
+	libssh2_sys -> openssl_sys;
+	libssh2_sys -> pkg_config;
+	libtar_sys	 [fontsize=14.5,
+		href="https://crates.io/crates/libtar-sys",
+		label="libtar-sys"];
+	libz_sys -> pkg_config;
+	linenoise	 [fontsize=14,
+		href="https://crates.io/crates/linenoise",
+		label=linenoise];
+	linenoise_sys	 [fontsize=14.5,
+		href="https://crates.io/crates/linenoise-sys",
+		label="linenoise-sys"];
+	linenoise -> linenoise_sys;
+	linenoise_rust	 [fontsize=14,
+		href="https://crates.io/crates/linenoise-rust",
+		label="linenoise-rust"];
+	linenoise_rust -> gcc;
+	linenoise_sys -> gcc;
+	lmdb_rs	 [fontsize=14,
+		href="https://crates.io/crates/lmdb-rs",
+		label="lmdb-rs"];
+	lmdb_rs -> log;
+	lmdb_rs -> liblmdb_sys;
+	logger	 [fontsize=14,
+		href="https://crates.io/crates/logger",
+		label=logger];
+	logger -> iron;
+	lua52_sys	 [fontsize=14,
+		href="https://crates.io/crates/lua52-sys",
+		label="lua52-sys"];
+	lua52_sys -> pkg_config;
+	magic	 [fontsize=14,
+		href="https://crates.io/crates/magic",
+		label=magic];
+	magic_sys	 [fontsize=14.5,
+		href="https://crates.io/crates/magic-sys",
+		label="magic-sys"];
+	magic -> magic_sys;
+	markov	 [fontsize=14,
+		href="https://crates.io/crates/markov",
+		label=markov];
+	markov -> rustc_serialize;
+	matrix	 [fontsize=14.5,
+		href="https://crates.io/crates/matrix",
+		label=matrix];
+	matrix -> blas;
+	matrix -> lapack;
+	maxminddb	 [fontsize=14,
+		href="https://crates.io/crates/maxminddb",
+		label=maxminddb];
+	maxminddb -> rustc_serialize;
+	mdbm_sys	 [fontsize=14.5,
+		href="https://crates.io/crates/mdbm-sys",
+		label="mdbm-sys"];
+	metafactory	 [fontsize=14.5,
+		href="https://crates.io/crates/metafactory",
+		label=metafactory];
+	typedef	 [fontsize=14.5,
+		href="https://crates.io/crates/typedef",
+		label=typedef];
+	metafactory -> typedef;
+	mime -> log;
+	miniz_sys -> gcc;
+	monad -> free;
+	monad -> monad_macros;
+	monad -> tailrec;
+	mount	 [fontsize=14.5,
+		href="https://crates.io/crates/mount",
+		label=mount];
+	mount -> url;
+	mount -> iron;
+	sequence_trie	 [fontsize=14.5,
+		href="https://crates.io/crates/sequence_trie",
+		label=sequence_trie];
+	mount -> sequence_trie;
+	mpfr_sys	 [fontsize=14,
+		href="https://crates.io/crates/mpfr-sys",
+		label="mpfr-sys"];
+	mpfr_sys -> gmp_sys;
+	multipart	 [fontsize=14,
+		href="https://crates.io/crates/multipart",
+		label=multipart];
+	multipart -> hyper;
+	mysql	 [fontsize=14,
+		href="https://crates.io/crates/mysql",
+		label=mysql];
+	mysql -> lazy_static;
+	mysql -> openssl;
+	mysql -> regex;
+	regex_macros	 [fontsize=14.5,
+		href="https://crates.io/crates/regex_macros",
+		label=regex_macros];
+	mysql -> regex_macros;
+	mysql -> time;
+	nanomsg	 [fontsize=14,
+		href="https://crates.io/crates/nanomsg",
+		label=nanomsg];
+	nanomsg -> libnanomsg;
+	ncollide -> nalgebra;
+	netaddr	 [fontsize=14,
+		href="https://crates.io/crates/netaddr",
+		label=netaddr];
+	netaddr -> rustc_serialize;
+	notify	 [fontsize=14,
+		href="https://crates.io/crates/notify",
+		label=notify];
+	notify -> inotify;
+	notify -> time;
+	nphysics	 [fontsize=14,
+		href="https://crates.io/crates/nphysics",
+		label=nphysics];
+	nphysics -> ncollide;
+	oauth_client	 [fontsize=14.5,
+		href="https://crates.io/crates/oauth-client",
+		label="oauth-client"];
+	oauth_client -> log;
+	oauth_client -> url;
+	oauth_client -> curl;
+	oauth_client -> rust_crypto;
+	oauth_client -> rustc_serialize;
+	oauth_client -> time;
+	oauth2	 [fontsize=14,
+		href="https://crates.io/crates/oauth2",
+		label=oauth2];
+	oauth2 -> log;
+	oauth2 -> url;
+	oauth2 -> curl;
+	ogg_sys	 [fontsize=15,
+		href="https://crates.io/crates/ogg-sys",
+		label="ogg-sys"];
+	ogg_sys -> gcc;
+	ogg_sys -> pkg_config;
+	old_http	 [fontsize=14,
+		href="https://crates.io/crates/old-http",
+		label="old-http"];
+	old_http -> url;
+	old_http -> openssl;
+	old_http -> time;
+	openssl -> openssl_sys;
+	openssl_sys -> libressl_pnacl_sys;
+	openssl_sys -> pkg_config;
+	openssl2_sys	 [fontsize=14,
+		href="https://crates.io/crates/openssl2-sys",
+		label="openssl2-sys"];
+	openssl2_sys -> pkg_config;
+	opentype	 [fontsize=14,
+		href="https://crates.io/crates/opentype",
+		label=opentype];
+	opentype -> date;
+	ordered_float	 [fontsize=14,
+		href="https://crates.io/crates/ordered-float",
+		label="ordered-float"];
+	ordered_float -> stainless;
+	persistent	 [fontsize=14,
+		href="https://crates.io/crates/persistent",
+		label=persistent];
+	persistent -> iron;
+	persistent -> plugin;
+	phant	 [fontsize=14,
+		href="https://crates.io/crates/phant",
+		label=phant];
+	phant -> url;
+	phantom	 [fontsize=15,
+		href="https://crates.io/crates/phantom",
+		label=phantom];
+	phf_mac	 [fontsize=14.5,
+		href="https://crates.io/crates/phf_mac",
+		label=phf_mac];
+	phf_mac -> phf_shared;
+	phf_mac -> time;
+	pidfile	 [fontsize=14,
+		href="https://crates.io/crates/pidfile",
+		label=pidfile];
+	pidfile -> nix;
+	pipes -> free;
+	piston_ai_behavior	 [fontsize=14.5,
+		href="https://crates.io/crates/piston-ai_behavior",
+		label="piston-ai_behavior"];
+	pistoncore_event	 [fontsize=15.5,
+		href="https://crates.io/crates/pistoncore-event",
+		label="pistoncore-event"];
+	piston_ai_behavior -> pistoncore_event;
+	piston_texture	 [fontsize=14.5,
+		href="https://crates.io/crates/piston-texture",
+		label="piston-texture"];
+	piston2d_drag_controller	 [fontsize=14,
+		href="https://crates.io/crates/piston2d-drag_controller",
+		label="piston2d-drag_controller"];
+	piston2d_drag_controller -> pistoncore_event;
+	piston2d_graphics	 [fontsize=14.5,
+		href="https://crates.io/crates/piston2d-graphics",
+		label="piston2d-graphics"];
+	piston2d_graphics -> piston_texture;
+	pistoncore_current	 [fontsize=16.5,
+		href="https://crates.io/crates/pistoncore-current",
+		label="pistoncore-current"];
+	piston2d_graphics -> pistoncore_current;
+	read_color	 [fontsize=14.5,
+		href="https://crates.io/crates/read_color",
+		label=read_color];
+	piston2d_graphics -> read_color;
+	vecmath	 [fontsize=14.5,
+		href="https://crates.io/crates/vecmath",
+		label=vecmath];
+	piston2d_graphics -> vecmath;
+	piston2d_sprite	 [fontsize=14,
+		href="https://crates.io/crates/piston2d-sprite",
+		label="piston2d-sprite"];
+	piston2d_sprite -> piston_ai_behavior;
+	piston2d_sprite -> piston2d_graphics;
+	piston2d_sprite -> pistoncore_current;
+	piston2d_sprite -> pistoncore_event;
+	piston2d_sprite -> uuid;
+	pistoncore_event -> pistoncore_current;
+	pistoncore_event_loop	 [fontsize=15,
+		href="https://crates.io/crates/pistoncore-event_loop",
+		label="pistoncore-event_loop"];
+	pistoncore_event -> pistoncore_event_loop;
+	pistoncore_input	 [fontsize=15.5,
+		href="https://crates.io/crates/pistoncore-input",
+		label="pistoncore-input"];
+	pistoncore_event -> pistoncore_input;
+	pistoncore_window	 [fontsize=15,
+		href="https://crates.io/crates/pistoncore-window",
+		label="pistoncore-window"];
+	pistoncore_event -> pistoncore_window;
+	pistoncore_event_loop -> pistoncore_current;
+	pistoncore_event_loop -> time;
+	pistoncore_sdl2_window	 [fontsize=14,
+		href="https://crates.io/crates/pistoncore-sdl2_window",
+		label="pistoncore-sdl2_window"];
+	pistoncore_sdl2_window -> pistoncore_input;
+	pistoncore_sdl2_window -> pistoncore_window;
+	pistoncore_sdl2_window -> sdl2;
+	shader_version	 [fontsize=14.5,
+		href="https://crates.io/crates/shader_version",
+		label=shader_version];
+	pistoncore_sdl2_window -> shader_version;
+	pistoncore_sdl2_window -> gl;
+	pistoncore_window -> pistoncore_current;
+	pistoncore_window -> pistoncore_event_loop;
+	pistoncore_window -> pistoncore_input;
+	pitch_calc	 [fontsize=14,
+		href="https://crates.io/crates/pitch_calc",
+		label=pitch_calc];
+	pitch_calc -> rustc_serialize;
+	plugin -> phantom;
+	plugin -> typemap;
+	pop3	 [fontsize=14,
+		href="https://crates.io/crates/pop3",
+		label=pop3];
+	pop3 -> openssl;
+	postgres -> log;
+	postgres -> phf;
+	postgres -> openssl;
+	postgres -> phf_mac;
+	postgres -> rustc_serialize;
+	postgres -> time;
+	postgres -> uuid;
+	postgres_array	 [fontsize=14,
+		href="https://crates.io/crates/postgres_array",
+		label=postgres_array];
+	postgres_array -> postgres;
+	postgres_array -> rustc_serialize;
+	postgres_array -> time;
+	postgres_array -> uuid;
+	postgres_range	 [fontsize=14,
+		href="https://crates.io/crates/postgres_range",
+		label=postgres_range];
+	postgres_range -> postgres;
+	postgres_range -> time;
+	probability	 [fontsize=14,
+		href="https://crates.io/crates/probability",
+		label=probability];
+	sfunc	 [fontsize=14.5,
+		href="https://crates.io/crates/sfunc",
+		label=sfunc];
+	probability -> sfunc;
+	puppetfile	 [fontsize=14,
+		href="https://crates.io/crates/puppetfile",
+		label=puppetfile];
+	puppetfile -> log;
+	puppetfile -> url;
+	puppetfile -> hyper;
+	puppetfile -> rustc_serialize;
+	puppetfile -> semver;
+	queryst	 [fontsize=14.5,
+		href="https://crates.io/crates/queryst",
+		label=queryst];
+	queryst -> url;
+	queryst -> regex;
+	queryst -> rustc_serialize;
+	quickcheck -> collect;
+	quickcheck_macros -> quickcheck;
+	r2d2	 [fontsize=14.5,
+		href="https://crates.io/crates/r2d2",
+		label=r2d2];
+	r2d2 -> log;
+	r2d2_postgres -> collect;
+	r2d2_postgres -> postgres;
+	r2d2_postgres -> r2d2;
+	readline	 [fontsize=14,
+		href="https://crates.io/crates/readline",
+		label=readline];
+	readline_sys	 [fontsize=14.5,
+		href="https://crates.io/crates/readline-sys",
+		label="readline-sys"];
+	readline -> readline_sys;
+	redis	 [fontsize=14.5,
+		href="https://crates.io/crates/redis",
+		label=redis];
+	redis -> url;
+	sha1	 [fontsize=15,
+		href="https://crates.io/crates/sha1",
+		label=sha1];
+	redis -> sha1;
+	redlock_rs	 [fontsize=14,
+		href="https://crates.io/crates/redlock-rs",
+		label="redlock-rs"];
+	redlock_rs -> redis;
+	redlock_rs -> time;
+	regex_macros -> regex;
+	resources_package	 [fontsize=14,
+		href="https://crates.io/crates/resources_package",
+		label=resources_package];
+	resources_package_package	 [fontsize=14.5,
+		href="https://crates.io/crates/resources_package_package",
+		label=resources_package_package];
+	resources_package -> resources_package_package;
+	rethinkdb	 [fontsize=14,
+		href="https://crates.io/crates/rethinkdb",
+		label=rethinkdb];
+	rethinkdb -> json_macros;
+	rope -> epsilonz_algebra;
+	rope -> fingertree;
+	router	 [fontsize=14.5,
+		href="https://crates.io/crates/router",
+		label=router];
+	router -> iron;
+	router -> route_recognizer;
+	rusqlite	 [fontsize=14,
+		href="https://crates.io/crates/rusqlite",
+		label=rusqlite];
+	rusqlite -> time;
+	rust_crypto -> rustc_serialize;
+	rust_crypto -> time;
+	rust_freqdist	 [fontsize=14,
+		href="https://crates.io/crates/rust-freqdist",
+		label="rust-freqdist"];
+	xxhash	 [fontsize=14.5,
+		href="https://crates.io/crates/xxhash",
+		label=xxhash];
+	rust_freqdist -> xxhash;
+	rust_mdbm	 [fontsize=14,
+		href="https://crates.io/crates/rust-mdbm",
+		label="rust-mdbm"];
+	rust_mdbm -> mdbm_sys;
+	rust_sqlite	 [fontsize=14,
+		href="https://crates.io/crates/rust-sqlite",
+		label="rust-sqlite"];
+	rust_sqlite -> time;
+	rust_xml	 [fontsize=14.5,
+		href="https://crates.io/crates/rust-xml",
+		label="rust-xml"];
+	rust_rub	 [fontsize=14,
+		href="https://crates.io/crates/rust_rub",
+		label=rust_rub];
+	rust_rub -> buildable;
+	rust_rub -> docopt;
+	rustbox	 [fontsize=14,
+		href="https://crates.io/crates/rustbox",
+		label=rustbox];
+	termbox_sys	 [fontsize=14.5,
+		href="https://crates.io/crates/termbox-sys",
+		label="termbox-sys"];
+	rustbox -> termbox_sys;
+	rustclient	 [fontsize=14,
+		href="https://crates.io/crates/rustclient",
+		label=rustclient];
+	rustclient -> url;
+	rustic_io	 [fontsize=14,
+		href="https://crates.io/crates/rustic-io",
+		label="rustic-io"];
+	rustic_io -> rust_crypto;
+	rustic_io -> rustc_serialize;
+	rustless	 [fontsize=14,
+		href="https://crates.io/crates/rustless",
+		label=rustless];
+	rustless -> url;
+	rustless -> cookie;
+	rustless -> error;
+	rustless -> hyper;
+	rustless -> iron;
+	rustless -> jsonway;
+	rustless -> queryst;
+	valico	 [fontsize=14.5,
+		href="https://crates.io/crates/valico",
+		label=valico];
+	rustless -> valico;
+	rustspec	 [fontsize=14,
+		href="https://crates.io/crates/rustspec",
+		label=rustspec];
+	rustspec_assertions	 [fontsize=14.5,
+		href="https://crates.io/crates/rustspec_assertions",
+		label=rustspec_assertions];
+	rustspec -> rustspec_assertions;
+	rusty_tags	 [fontsize=14,
+		href="https://crates.io/crates/rusty-tags",
+		label="rusty-tags"];
+	rusty_tags -> glob;
+	rusty_tags -> toml;
+	sdl2_gfx -> sdl2;
+	sdl2_mixer	 [fontsize=14,
+		href="https://crates.io/crates/sdl2_mixer",
+		label=sdl2_mixer];
+	sdl2_mixer -> sdl2;
+	sdl2_ttf -> sdl2;
+	select_color	 [fontsize=14,
+		href="https://crates.io/crates/select_color",
+		label=select_color];
+	select_color -> image;
+	simpleflake	 [fontsize=14,
+		href="https://crates.io/crates/simpleflake",
+		label=simpleflake];
+	simpleflake -> time;
+	slack	 [fontsize=14,
+		href="https://crates.io/crates/slack",
+		label=slack];
+	slack -> hyper;
+	slack -> rustc_serialize;
+	websocket	 [fontsize=14.5,
+		href="https://crates.io/crates/websocket",
+		label=websocket];
+	slack -> websocket;
+	slack_hook	 [fontsize=14,
+		href="https://crates.io/crates/slack-hook",
+		label="slack-hook"];
+	slack_hook -> curl;
+	slack_hook -> rustc_serialize;
+	slow_primes -> num;
+	smtp	 [fontsize=14,
+		href="https://crates.io/crates/smtp",
+		label=smtp];
+	smtp -> time;
+	smtp -> uuid;
+	solvent	 [fontsize=14,
+		href="https://crates.io/crates/solvent",
+		label=solvent];
+	solvent -> log;
+	sort_str_to_sql	 [fontsize=14,
+		href="https://crates.io/crates/sort_str_to_sql",
+		label=sort_str_to_sql];
+	sort_str_to_sql -> regex;
+	soundchange	 [fontsize=14.5,
+		href="https://crates.io/crates/soundchange",
+		label=soundchange];
+	soundchange_english	 [fontsize=14,
+		href="https://crates.io/crates/soundchange-english",
+		label="soundchange-english"];
+	soundchange_english -> soundchange;
+	spread	 [fontsize=14,
+		href="https://crates.io/crates/spread",
+		label=spread];
+	spread -> encoding;
+	ssh2	 [fontsize=14,
+		href="https://crates.io/crates/ssh2",
+		label=ssh2];
+	ssh2 -> libssh2_sys;
+	static	 [fontsize=14,
+		href="https://crates.io/crates/static",
+		label=static];
+	static -> iron;
+	static -> iron_test;
+	static -> mount;
+	static -> router;
+	static -> time;
+	stopwatch	 [fontsize=14,
+		href="https://crates.io/crates/stopwatch",
+		label=stopwatch];
+	stopwatch -> time;
+	stream	 [fontsize=14,
+		href="https://crates.io/crates/stream",
+		label=stream];
+	stream -> lazy;
+	string_telephone	 [fontsize=14,
+		href="https://crates.io/crates/string_telephone",
+		label=string_telephone];
+	string_telephone -> time;
+	substudy	 [fontsize=14,
+		href="https://crates.io/crates/substudy",
+		label=substudy];
+	substudy -> peg;
+	substudy -> docopt_macros;
+	substudy -> encoding;
+	substudy -> rustc_serialize;
+	uchardet	 [fontsize=14.5,
+		href="https://crates.io/crates/uchardet",
+		label=uchardet];
+	substudy -> uchardet;
+	tabwriter -> docopt;
+	tailrec -> free;
+	tape	 [fontsize=14,
+		href="https://crates.io/crates/tape",
+		label=tape];
+	tape -> libtar_sys;
+	taskpool	 [fontsize=14,
+		href="https://crates.io/crates/taskpool",
+		label=taskpool];
+	taskpool -> stainless;
+	tempan	 [fontsize=14,
+		href="https://crates.io/crates/tempan",
+		label=tempan];
+	tempan -> hotspot;
+	tempan -> matrix;
+	term	 [fontsize=14,
+		href="https://crates.io/crates/term",
+		label=term];
+	term -> log;
+	text_table	 [fontsize=14,
+		href="https://crates.io/crates/text_table",
+		label=text_table];
+	text_table -> stainless;
+	texture_packer	 [fontsize=14,
+		href="https://crates.io/crates/texture_packer",
+		label=texture_packer];
+	texture_packer -> image;
+	tiled	 [fontsize=14,
+		href="https://crates.io/crates/tiled",
+		label=tiled];
+	tiled -> flate2;
+	tiled -> rust_xml;
+	time -> gcc;
+	time -> rustc_serialize;
+	time_calc	 [fontsize=14,
+		href="https://crates.io/crates/time_calc",
+		label=time_calc];
+	time_calc -> rustc_serialize;
+	toml -> rustc_serialize;
+	twitter_api	 [fontsize=14,
+		href="https://crates.io/crates/twitter-api",
+		label="twitter-api"];
+	twitter_api -> oauth_client;
+	typemap -> phantom;
+	typemap -> unsafe_any;
+	uchardet_sys	 [fontsize=14.5,
+		href="https://crates.io/crates/uchardet-sys",
+		label="uchardet-sys"];
+	uchardet -> uchardet_sys;
+	uchardet_sys -> pkg_config;
+	unicode_names	 [fontsize=14.5,
+		href="https://crates.io/crates/unicode_names",
+		label=unicode_names];
+	unicode_names_macros	 [fontsize=14,
+		href="https://crates.io/crates/unicode_names_macros",
+		label=unicode_names_macros];
+	unicode_names_macros -> unicode_names;
+	utmp	 [fontsize=14,
+		href="https://crates.io/crates/utmp",
+		label=utmp];
+	utmp -> time;
+	uuid -> rustc_serialize;
+	v8_rub	 [fontsize=14,
+		href="https://crates.io/crates/v8_rub",
+		label=v8_rub];
+	v8_rub -> buildable;
+	v8_rub -> docopt;
+	valico -> regex;
+	valico -> rustc_serialize;
+	vorbis	 [fontsize=14,
+		href="https://crates.io/crates/vorbis",
+		label=vorbis];
+	vorbisfile_sys	 [fontsize=14.5,
+		href="https://crates.io/crates/vorbisfile-sys",
+		label="vorbisfile-sys"];
+	vorbis -> vorbisfile_sys;
+	vorbis_sys	 [fontsize=14.5,
+		href="https://crates.io/crates/vorbis-sys",
+		label="vorbis-sys"];
+	vorbis_sys -> gcc;
+	vorbis_sys -> ogg_sys;
+	vorbis_sys -> pkg_config;
+	vorbisfile_sys -> gcc;
+	vorbisfile_sys -> ogg_sys;
+	vorbisfile_sys -> pkg_config;
+	vorbisfile_sys -> vorbis_sys;
+	water	 [fontsize=14,
+		href="https://crates.io/crates/water",
+		label=water];
+	water -> time;
+	websocket -> url;
+	websocket -> hyper;
+	websocket -> openssl;
+	websocket -> rustc_serialize;
+	websocket -> sha1;
+	wire	 [fontsize=14,
+		href="https://crates.io/crates/wire",
+		label=wire];
+	wire -> bchannel;
+	wire -> bincode;
+	wire -> rustc_serialize;
+	zlib	 [fontsize=14,
+		href="https://crates.io/crates/zlib",
+		label=zlib];
+	zlib -> crc32;
+	di	 [fontsize=14,
+		href="https://crates.io/crates/di",
+		label=di];
+	di -> metafactory;
+	gl -> gl_common;
+	gl -> gl_generator;
+}
