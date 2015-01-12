@@ -6,7 +6,7 @@ use std::collections::{HashMap, HashSet, hash_map};
 use std::io::{BufferedReader, File, Command};
 use std::io::fs::PathExtensions;
 
-const MAX_REV_DEP_COUNT: uint = 100;
+const MAX_REV_DEP_COUNT: usize = 100;
 
 #[derive(RustcDecodable)]
 #[allow(dead_code)]
@@ -90,7 +90,7 @@ fn main() {
 
             let count = match rev_dep_count.entry(dep_name.clone()) {
                 hash_map::Entry::Occupied(o) => o.into_mut(),
-                hash_map::Entry::Vacant(v) => v.set(0u)
+                hash_map::Entry::Vacant(v) => v.insert(0us)
             };
             *count += 1;
         }
