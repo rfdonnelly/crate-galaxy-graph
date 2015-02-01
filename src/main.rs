@@ -3,8 +3,8 @@ extern crate glob;
 extern crate "rustc-serialize" as rustc_serialize;
 
 use std::collections::{HashMap, HashSet, hash_map};
-use std::io::{BufferedReader, File, Command};
-use std::io::fs::PathExtensions;
+use std::old_io::{BufferedReader, File, Command};
+use std::old_io::fs::PathExtensions;
 
 const MAX_REV_DEP_COUNT: usize = 100;
 
@@ -58,8 +58,12 @@ fn main() {
     let mut interacts = HashSet::new();
     let mut rev_dep_count = HashMap::new();
 
-    for path in glob::glob_with("crates.io-index/*/*/*", &opts)
-                    .chain(glob::glob_with("crates.io-index/[12]/*", &opts)) {
+    let index_paths1 = glob::glob_with("crates.io-index/*/*/*", &opts).unwrap();
+
+    let index_paths2 = glob::glob_with("crates.io-index/[12]/*", &opts).unwrap();
+
+    for path in index_paths1.chain(index_paths2) {
+        let path = path.unwrap();
 
         let file = File::open(&path).unwrap();
         let last_line = BufferedReader::new(file).lines().last().unwrap().unwrap();
