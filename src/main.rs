@@ -1,10 +1,12 @@
-#![feature(old_orphan_check)]
+#![feature(io, path, path_ext, std_misc)]
 extern crate glob;
 extern crate "rustc-serialize" as rustc_serialize;
 
 use std::collections::{HashMap, HashSet, hash_map};
-use std::old_io::{BufferedReader, File, Command};
-use std::old_io::fs::PathExtensions;
+use std::io::prelude::*;
+use std::io::BufReader;
+use std::fs::File;
+use std::process::Command;
 
 const MAX_REV_DEP_COUNT: usize = 100;
 
@@ -33,7 +35,7 @@ struct DepInfo {
 
 // shallowly download the index, if necessary
 fn fetch_index() {
-    if Path::new("crates.io-index").exists() {
+    if std::path::PathBuf::new("crates.io-index").exists() {
         return
     }
 
@@ -66,7 +68,7 @@ fn main() {
         let path = path.unwrap();
 
         let file = File::open(&path).unwrap();
-        let last_line = BufferedReader::new(file).lines().last().unwrap().unwrap();
+        let last_line = BufReader::new(file).lines().last().unwrap().unwrap();
         let crate_info: CrateInfo = rustc_serialize::json::decode(&*last_line).unwrap();
 
         crates.push(crate_info.name.clone());
@@ -94,7 +96,7 @@ fn main() {
 
             let count = match rev_dep_count.entry(dep_name.clone()) {
                 hash_map::Entry::Occupied(o) => o.into_mut(),
-                hash_map::Entry::Vacant(v) => v.insert(0us)
+                hash_map::Entry::Vacant(v) => v.insert(0)
             };
             *count += 1;
         }
