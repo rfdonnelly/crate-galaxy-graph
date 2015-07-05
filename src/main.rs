@@ -1,12 +1,12 @@
-#![feature(io, path, path_ext, std_misc)]
 extern crate glob;
-extern crate "rustc-serialize" as rustc_serialize;
+extern crate rustc_serialize;
 
 use std::collections::{HashMap, HashSet, hash_map};
 use std::io::prelude::*;
 use std::io::BufReader;
 use std::fs::File;
 use std::process::Command;
+use std::fs::metadata;
 
 const MAX_REV_DEP_COUNT: usize = 100;
 
@@ -35,7 +35,7 @@ struct DepInfo {
 
 // shallowly download the index, if necessary
 fn fetch_index() {
-    if std::path::PathBuf::new("crates.io-index").exists() {
+    if metadata(std::path::PathBuf::from("crates.io-index")).is_ok() {
         return
     }
 
