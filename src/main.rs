@@ -35,7 +35,7 @@ struct DepInfo {
 
 // shallowly download the index, if necessary
 fn fetch_index() {
-    if metadata(std::path::PathBuf::from("crates.io-index")).is_ok() {
+    if metadata("crates.io-index").is_ok() {
         return
     }
 
