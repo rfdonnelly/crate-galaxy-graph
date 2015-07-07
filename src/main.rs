@@ -4,9 +4,8 @@ extern crate rustc_serialize;
 use std::collections::{HashMap, HashSet, hash_map};
 use std::io::prelude::*;
 use std::io::BufReader;
-use std::fs::File;
+use std::fs::{self, File};
 use std::process::Command;
-use std::fs::metadata;
 
 const MAX_REV_DEP_COUNT: usize = 100;
 
@@ -35,7 +34,7 @@ struct DepInfo {
 
 // shallowly download the index, if necessary
 fn fetch_index() {
-    if metadata("crates.io-index").is_ok() {
+    if fs::metadata("crates.io-index").is_ok() {
         return
     }
 
