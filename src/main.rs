@@ -1,5 +1,4 @@
-extern crate glob;
-extern crate rustc_serialize;
+use serde::Deserialize;
 
 use std::collections::{HashMap, HashSet, hash_map};
 use std::io::prelude::*;
@@ -9,7 +8,7 @@ use std::process::Command;
 
 const MAX_REV_DEP_COUNT: usize = 100;
 
-#[derive(RustcDecodable)]
+#[derive(Deserialize)]
 #[allow(dead_code)]
 struct CrateInfo {
     name: String,
@@ -20,7 +19,7 @@ struct CrateInfo {
     yanked: bool,
 }
 
-#[derive(RustcDecodable)]
+#[derive(Deserialize)]
 #[allow(dead_code)]
 struct DepInfo {
     name: String,
@@ -68,7 +67,7 @@ fn main() {
 
         let file = File::open(&path).unwrap();
         let last_line = BufReader::new(file).lines().last().unwrap().unwrap();
-        let crate_info: CrateInfo = rustc_serialize::json::decode(&*last_line).unwrap();
+        let crate_info: CrateInfo = serde_json::from_str(&last_line).unwrap();
 
         crates.push(crate_info.name.clone());
 
