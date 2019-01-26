@@ -110,7 +110,7 @@ fn main() {
     // seem to allow attaching arbitrary attributes at the moment.
     println!("digraph cratesio {{");
     for &(ref source, ref target) in edges.iter() {
-        println!("  {} -> {}", source.replace("-", "_"), target.replace("-", "_"))
+        println!("  \"{}\" -> \"{}\"", source, target)
     }
 
     println!("}}");
