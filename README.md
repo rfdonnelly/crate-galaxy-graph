@@ -1,9 +1,14 @@
-Very basic scripts for drawing a graph of the crates.io
-packages. [Blog post](http://huonw.github.io/blog/2015/01/crates.io-crate-graph/).
+# Crates.io ngraph
 
-`make` should create something semisensible, code may have to be
-edited (the `MAX_REV_DEP_COUNT` field at the top of `src/main.rs`) to
-reproduce the results shown in the blog post (well, to get closer: the
-package system is living and changes).
+Creates a dependency graph of all crates on crates.io for visualization in [Code
+Galaxies].
 
-It requires graphviz (`fdp` and `gvpr`) and `git` at least.
+[Code Galaxies]: https://anvaka.github.io/pm
+
+## Attribution
+
+The Rust program that generates a GraphViz digraph was forked from
+[crates.io-graph].  It was then ported to Rust 2018 and trimmed for input to
+ngraph.fromdot.
+
+[crates.io-graph]: https://github.com/huonw/crates.io-graph
