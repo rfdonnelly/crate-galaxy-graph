@@ -1,0 +1,17 @@
+{
+  "name": "ngraph",
+  "version": "1.0.0",
+  "description": "Convert graphviz dot format to ngraph binary format for use in package manager visualization.",
+  "main": "index.js",
+  "dependencies": {
+    "ngraph.fromdot": "^0.4.0",
+    "ngraph.offline.layout": "^1.1.1",
+    "ngraph.tobinary": "^1.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rob Donnelly",
+  "license": "ISC"
+}
