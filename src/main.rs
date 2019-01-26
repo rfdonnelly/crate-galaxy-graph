@@ -109,13 +109,6 @@ fn main() {
     // it would be nice to use the `graphviz` crate, but that doesn't
     // seem to allow attaching arbitrary attributes at the moment.
     println!("digraph cratesio {{");
-    for krate in crates.iter() {
-        let count = rev_dep_count.get(krate).map_or(0, |n| *n);
-        println!("  {ident}[label=\"{name}\" href=\"https://crates.io/crates/{name}\" fontsize={size}]",
-                 ident = krate.replace("-", "_"),
-                 name = krate,
-                 size = 14.0 + count as f64 / 2.0);
-    }
     for &(ref source, ref target) in edges.iter() {
         println!("  {} -> {}", source.replace("-", "_"), target.replace("-", "_"))
     }
