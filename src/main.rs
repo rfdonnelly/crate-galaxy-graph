@@ -4,7 +4,8 @@ use std::collections::{HashMap, HashSet, hash_map};
 use std::io::prelude::*;
 use std::io::BufReader;
 use std::fs::{self, File};
-use std::process::Command;
+use std::process::{Command, Stdio};
+use std::error::Error;
 
 const MAX_REV_DEP_COUNT: usize = 100;
 
@@ -31,24 +32,34 @@ struct DepInfo {
     kind: Option<String>
 }
 
-// shallowly download the index, if necessary
-fn fetch_index() {
-    if fs::metadata("crates.io-index").is_ok() {
-        return
+fn fetch_index() -> Result<(), Box<dyn Error>> {
+    match fs::metadata("crates.io-index") {
+        Err(_) => {
+            eprintln!("Cloning crates.io-index...");
+            // Ideally, we'd direct stdout to stderr but there is not a convenient way to do
+            // this.  See https://www.reddit.com/r/rust/comments/adaj2f/how_to_pipe_child_process_stdout_to_stderr/
+            // for alternatives.  Ignore stdout instead.
+            Command::new("git")
+                .arg("clone")
+                .arg("--depth").arg("1")
+                .arg("https://github.com/rust-lang/crates.io-index")
+                .stdout(Stdio::null())
+                .spawn()?.wait()?;
+        }
+        Ok(_) => {
+            eprintln!("Pulling crates.io-index...");
+            Command::new("git")
+                .arg("pull")
+                .stdout(Stdio::null())
+                .spawn()?.wait()?;
+        }
     }
 
-    Command::new("git")
-        .arg("clone")
-        .arg("--depth").arg("1")
-        .arg("https://github.com/rust-lang/crates.io-index")
-        .spawn()
-        .unwrap()
-        .wait()
-        .unwrap();
+    Ok(())
 }
 
-fn main() {
-    fetch_index();
+fn main() -> Result<(), Box<dyn Error>> {
+    fetch_index()?;
 
     let mut opts = glob::MatchOptions::new();
     opts.require_literal_leading_dot = true;
@@ -65,9 +76,9 @@ fn main() {
     for path in index_paths1.chain(index_paths2) {
         let path = path.unwrap();
 
-        let file = File::open(&path).unwrap();
-        let last_line = BufReader::new(file).lines().last().unwrap().unwrap();
-        let crate_info: CrateInfo = serde_json::from_str(&last_line).unwrap();
+        let file = File::open(&path)?;
+        let last_line = BufReader::new(file).lines().last().unwrap()?;
+        let crate_info: CrateInfo = serde_json::from_str(&last_line)?;
 
         crates.push(crate_info.name.clone());
 
@@ -114,4 +125,6 @@ fn main() {
     }
 
     println!("}}");
+
+    Ok(())
 }
