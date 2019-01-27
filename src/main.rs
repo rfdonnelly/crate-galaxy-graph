@@ -1,13 +1,11 @@
 use serde::Deserialize;
 
-use std::collections::{HashMap, HashSet, hash_map};
+use std::collections::HashMap;
 use std::io::prelude::*;
 use std::io::BufReader;
 use std::fs::{self, File};
 use std::process::{Command, Stdio};
 use std::error::Error;
-
-const MAX_REV_DEP_COUNT: usize = 100;
 
 #[derive(Deserialize)]
 #[allow(dead_code)]
@@ -64,13 +62,9 @@ fn main() -> Result<(), Box<dyn Error>> {
     let mut opts = glob::MatchOptions::new();
     opts.require_literal_leading_dot = true;
 
-    let mut crates = vec![];
     let mut edges = vec![];
-    let mut interacts = HashSet::new();
-    let mut rev_dep_count = HashMap::new();
 
     let index_paths1 = glob::glob_with("crates.io-index/*/*/*", &opts).unwrap();
-
     let index_paths2 = glob::glob_with("crates.io-index/[12]/*", &opts).unwrap();
 
     for path in index_paths1.chain(index_paths2) {
@@ -80,8 +74,6 @@ fn main() -> Result<(), Box<dyn Error>> {
         let last_line = BufReader::new(file).lines().last().unwrap()?;
         let crate_info: CrateInfo = serde_json::from_str(&last_line)?;
 
-        crates.push(crate_info.name.clone());
-
         let mut deps = crate_info.deps.iter()
             // remove dev dependencies
             .filter(|d| d.kind.as_ref().map_or(true, |s| &**s != "dev"))
@@ -89,33 +81,15 @@ fn main() -> Result<(), Box<dyn Error>> {
             .map(|d| &d.name)
             .collect::<Vec<_>>();
 
-        // it has dependencies, it links into the package ecosystem, yay!
-        if !deps.is_empty() {
-            interacts.insert(crate_info.name.clone());
-        }
-
         // remove any duplicates
         deps.sort();
         deps.dedup();
 
         // register all the dependencies
         for &dep_name in deps.iter() {
-            interacts.insert(dep_name.clone());
             edges.push((crate_info.name.clone(), dep_name.clone()));
-
-            let count = match rev_dep_count.entry(dep_name.clone()) {
-                hash_map::Entry::Occupied(o) => o.into_mut(),
-                hash_map::Entry::Vacant(v) => v.insert(0)
-            };
-            *count += 1;
         }
     }
-
-    crates.retain(|name| // interacts.contains(name) && // done externally
-                  rev_dep_count.get(name).map_or(true, |n| *n <= MAX_REV_DEP_COUNT));
-    edges.retain(|&(ref source, ref target)|
-                 rev_dep_count.get(source).map_or(true, |n| *n <= MAX_REV_DEP_COUNT) &&
-                 rev_dep_count.get(target).map_or(true, |n| *n <= MAX_REV_DEP_COUNT));
 
     // it would be nice to use the `graphviz` crate, but that doesn't
     // seem to allow attaching arbitrary attributes at the moment.
@@ -123,7 +97,6 @@ fn main() -> Result<(), Box<dyn Error>> {
     for &(ref source, ref target) in edges.iter() {
         println!("  \"{}\" -> \"{}\"", source, target)
     }
-
     println!("}}");
 
     Ok(())
