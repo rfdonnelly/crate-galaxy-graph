@@ -1,0 +1,9 @@
+language: rust
+rust:
+  - stable
+cache: cargo
+script:
+  - (cd ngraph && npm install)
+  - cargo run --release > out.dot
+  - ngraph/index.js out.dot
+

@@ -5,6 +5,21 @@ Galaxies].
 
 [Code Galaxies]: https://anvaka.github.io/pm
 
+## Steps
+
+### Download crates.io registery and create graph
+
+```sh
+cargo run --release > out.dot
+```
+
+### Convert graph to ngraph format
+
+```sh
+(cd ngraph && npm install)
+ngraph/index.js out.dot
+```
+
 ## Attribution
 
 The Rust program that generates a GraphViz digraph was forked from
