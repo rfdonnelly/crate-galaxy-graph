@@ -1,0 +1,31 @@
+#!/usr/bin/env ruby
+
+require 'time'
+require 'fileutils'
+require 'json'
+
+# Make timestamp format match prior art
+timestamp =
+  Time.now.iso8601
+    .gsub('+00:00', 'Z')
+    .gsub(':', '-')
+
+files = ['labels.json', 'links.bin', 'positions.bin']
+from_path = "data"
+data_path = "crate-galaxy-data/crates.io"
+to_path = File.join(data_path, timestamp)
+
+FileUtils.mkdir(to_path)
+FileUtils.mv(files.map { |file| File.join(from_path, file) }, to_path)
+
+entries =
+  Dir.entries(data_path).select do |path|
+    Dir.exist?(File.join(data_path, path)) && !['..', '.'].include?(path)
+  end
+
+manifest_path = File.join(data_path, "manifest.json")
+manifest = {
+  "all" => entries,
+  "last" => timestamp,
+}
+File.write(manifest_path, JSON.pretty_generate(manifest))
