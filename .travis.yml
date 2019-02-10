@@ -1,0 +1,14 @@
+language: rust
+rust:
+  - stable
+cache: cargo
+before_install:
+  - "(cd ngraph && npm install)"
+script:
+  - cargo run --release > out.dot
+  - ngraph/index.js out.dot
+after_success:
+  - ./deploy
+env:
+  global:
+    secure: IH/qjVQfrsMKrJ+qVMSJuGQlNc9537WSpCANnL5BSdc2uG/BHPBlnmOMQnVvC/ZTpwVlKh68+pdtPn5JD5+YrBDWjpcrtcb13zV5b1gqNF9OHeQQ5P3T6gyfMNrLaF/6IGCNbWLaFVr0gmH0voWboQ83WihG6dzgwVOOFFBkSiJ4//5yNNps5ICa4xmvEgWNYoPw75PfeNuwX81IbREqmTIFERXXQDfeaKLobn1ad9mt8JdXNhWaUpJqVc1UATR9GrmJrOojusqn2BEVl3twUO3QRear4MfHR/lf1Jfh5ow0cxY+rpHB0cHkH8WCDPISqSZ7SYlLKV/rfaOACX6rUULdaKlj8thMxsQFAhURj1ezer2AjgDPVtMFiQH1DLYXSElln/HfM7mMOZENxabolPiCqkRisy7OwbyUiIvlu8vb7OTfvscQKXj0vGtnBB/bYFQGg/qaQ1OVb6q+lA9g7puCOW642flJEhO1qJcyKNwnk7kn8aIqeUCy+BeuOUO40rJirKN7MWPMijkmn4nXnTQ11HxQ4gMngRud2l3Mkgo7ezHI1pRXEqK/JJRpGeJWP5SN44799D+5M+WW7H6XqV5bF2+2mDSE9A8haMBE7/MhpCDNbyX39PK1TIpRUCT24RcisxIBLnPGKm25b+CyX87swer364c/0/pxcVfYktU=
